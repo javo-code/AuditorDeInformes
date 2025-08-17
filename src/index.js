@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 // ========== View engine (EJS + ejs-mate) ==========
 app.engine('ejs', engine); // 👈 habilita layout('layout')
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'views')); // .../auditor-node/views
+app.set('views', path.join(__dirname, 'views')); // .../auditor-node/views
 
 // ========== Middlewares ==========
 app.use('/public', express.static(path.join(__dirname, '..', 'public')));
