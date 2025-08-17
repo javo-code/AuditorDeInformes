@@ -1,0 +1,55 @@
+<% layout('layout') %>
+
+    <section class="card">
+        <h2>Resumen</h2>
+        <ul class="inline">
+            <li>NO_AUTH: <strong>
+                    <%= summary.NO_AUTH || 0 %>
+                </strong></li>
+            <li>MISSING_REPORT: <strong>
+                    <%= summary.MISSING_REPORT || 0 %>
+                </strong></li>
+            <li>START_MISMATCH: <strong>
+                    <%= summary.START_MISMATCH || 0 %>
+                </strong></li>
+            <li>DURATION_MISMATCH: <strong>
+                    <%= summary.DURATION_MISMATCH || 0 %>
+                </strong></li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Detalle</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Profesional</th>
+                        <th>Fecha</th>
+                        <th>Servicio</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% discrepancies.forEach(d=> { %>
+                        <tr>
+                            <td><code><%= d.type %></code></td>
+                            <td>
+                                <%= d.professionalId %>
+                            </td>
+                            <td>
+                                <%= d.serviceDate %>
+                            </td>
+                            <td>
+                                <%= d.serviceType %>
+                            </td>
+                            <td>
+                                <%= d.details %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>

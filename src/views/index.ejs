@@ -1,0 +1,27 @@
+<form action="/audit" method="post" enctype="multipart/form-data" class="card">
+    <h2>Cargar CSV</h2>
+    <div class="grid">
+        <div>
+            <label>Autorizado (CSV)</label>
+            <input type="file" name="authorized" accept=".csv" required />
+        </div>
+        <div>
+            <label>Reportado (CSV)</label>
+            <input type="file" name="reported" accept=".csv" required />
+        </div>
+    </div>
+
+    <h3>⚙️ Tolerancias</h3>
+    <div class="grid">
+        <div>
+            <label>Desvío de inicio (min)</label>
+            <input type="number" name="startToleranceMin" value="<%= defaults.startToleranceMin %>" />
+        </div>
+        <div>
+            <label>Diferencia de duración (min)</label>
+            <input type="number" name="durationToleranceMin" value="<%= defaults.durationToleranceMin %>" />
+        </div>
+    </div>
+
+    <button type="submit">Auditar</button>
+</form>
